@@ -48,13 +48,11 @@ app.patch('/api/tasks/:id', (req, res) => {
     task.title = title.trim();
   }
 
-  const updatedTask = { ...task };
-
   if (completed !== undefined) {
-    updatedTask.completed = Boolean(completed);
+    task.completed = Boolean(completed);
   }
 
-  res.json(updatedTask);
+  res.json(task);
 });
 
 app.delete('/api/tasks/:id', (req, res) => {
